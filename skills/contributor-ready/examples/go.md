@@ -1,6 +1,6 @@
 # Go Project Example
 
-This example demonstrates how to use oss-ready with a Go project.
+This example demonstrates how to use contributor-ready with a Go project.
 
 ## Project Structure
 
@@ -40,7 +40,7 @@ my-go-project/
 
 ## Detection
 
-When analyzing a Go project, oss-ready detects:
+When analyzing a Go project, contributor-ready detects:
 
 - **Language**: Go (by `.go` files and `go.mod`)
 - **Build System**: go build (by `go.mod`)
@@ -368,7 +368,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a Go project:
+When using contributor-ready with a Go project:
 
 - [ ] Detect Go version from go.mod
 - [ ] Detect HTTP framework (gin, echo, fiber, etc.)

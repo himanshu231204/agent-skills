@@ -1,9 +1,11 @@
 ---
-name: oss-ready
-description: "Transform any repository into a professional, contributor-friendly open source project. Analyzes repo health, generates documentation, creates GitHub community files, identifies contribution opportunities, and produces a readiness report. Agent-independent and technology-agnostic."
+name: contributor-ready
+description: "Transform any software repository into a contributor-friendly, production-ready open source project. Analyzes repo health, generates documentation, creates GitHub community files, identifies contribution opportunities, and produces a readiness report. Agent-independent and technology-agnostic."
 ---
 
-# oss-ready
+# contributor-ready
+
+> The universal AI coding agent skill for preparing repositories for open source contributors.
 
 Analyze, document, and prepare any repository for open source contribution. This skill does not generate generic templates — it inspects your actual codebase and produces repository-specific artifacts.
 
@@ -11,16 +13,16 @@ Analyze, document, and prepare any repository for open source contribution. This
 
 | Command | What It Does |
 |---------|--------------|
-| `oss-ready audit` | Analyze repository, produce readiness report (no file changes) |
-| `oss-ready generate` | Create only the files that are missing |
-| `oss-ready improve` | Enhance existing documentation in place |
-| `oss-ready issues` | Identify real contribution opportunities from code analysis |
-| `oss-ready full` | Audit, generate, issues, report — complete pipeline |
+| `contributor-ready audit` | Analyze repository, produce readiness report (no file changes) |
+| `contributor-ready generate` | Create only the files that are missing |
+| `contributor-ready improve` | Enhance existing documentation in place |
+| `contributor-ready issues` | Identify real contribution opportunities from code analysis |
+| `contributor-ready full` | Audit, generate, issues, report — complete pipeline |
 
 ## Quick Start
 
 ```
-Run oss-ready full on this repository to make it contributor-ready.
+Run contributor-ready full on this repository to make it contributor-ready.
 ```
 
 ## How It Works
@@ -47,7 +49,7 @@ Regenerate the README.md for this repository.
 ## Architecture
 
 ```
-oss-ready/
+contributor-ready/
 ├── skill.md              # Entry point — this file
 ├── AGENT.md              # Agent orchestration and command routing
 ├── prompt.md             # System prompt for the skill
@@ -79,16 +81,17 @@ oss-ready/
 │   ├── ARCHITECTURE.md
 │   ├── ISSUE_TEMPLATE.md
 │   └── PR_TEMPLATE.md
-└── examples/             # Technology-specific guides
-    ├── python.md
-    ├── fastapi.md
-    ├── react.md
-    ├── nextjs.md
-    ├── go.md
-    ├── rust.md
-    ├── cli.md
-    ├── library.md
-    └── chrome-extension.md
+├── examples/             # Technology-specific guides
+│   ├── python.md
+│   ├── fastapi.md
+│   ├── react.md
+│   ├── nextjs.md
+│   ├── go.md
+│   ├── rust.md
+│   ├── cli.md
+│   ├── library.md
+│   └── chrome-extension.md
+└── assets/               # Static assets and resources
 ```
 
 ## Technology Support
@@ -109,7 +112,3 @@ oss-ready/
 ## License
 
 MIT
-
-Base directory for this skill: C:\Users\himan\Desktop\oss-ready\.opencode\skills\oss-ready
-Relative paths in this skill (e.g., scripts/, reference/) are relative to this base directory.
-Note: file list is sampled.

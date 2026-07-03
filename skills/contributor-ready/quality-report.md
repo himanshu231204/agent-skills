@@ -1,4 +1,4 @@
-# Quality Report: oss-ready v2.0.0
+# Quality Report: contributor-ready v3.0.0
 
 **Date**: 2026-07-03
 **Previous Score**: 7.2/10

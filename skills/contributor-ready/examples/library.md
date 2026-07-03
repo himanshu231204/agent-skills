@@ -1,6 +1,6 @@
 # Library Project Example
 
-This example demonstrates how to use oss-ready with a library project.
+This example demonstrates how to use contributor-ready with a library project.
 
 ## Project Structure
 
@@ -32,7 +32,7 @@ my-library/
 
 ## Detection
 
-When analyzing a library project, oss-ready detects:
+When analyzing a library project, contributor-ready detects:
 
 - **Type**: Library (by no bin field, exports in package.json)
 - **Language**: TypeScript or JavaScript (by file extensions)
@@ -536,7 +536,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a library project:
+When using contributor-ready with a library project:
 
 - [ ] Detect library type
 - [ ] Detect TypeScript usage

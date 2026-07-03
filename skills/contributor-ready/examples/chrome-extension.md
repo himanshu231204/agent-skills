@@ -1,6 +1,6 @@
 # Chrome Extension Project Example
 
-This example demonstrates how to use oss-ready with a Chrome extension project.
+This example demonstrates how to use contributor-ready with a Chrome extension project.
 
 ## Project Structure
 
@@ -51,7 +51,7 @@ my-chrome-extension/
 
 ## Detection
 
-When analyzing a Chrome extension project, oss-ready detects:
+When analyzing a Chrome extension project, contributor-ready detects:
 
 - **Type**: Chrome extension (by manifest.json)
 - **Language**: TypeScript or JavaScript (by file extensions)
@@ -539,7 +539,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a Chrome extension project:
+When using contributor-ready with a Chrome extension project:
 
 - [ ] Detect Chrome extension type
 - [ ] Check manifest.json

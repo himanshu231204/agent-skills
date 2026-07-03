@@ -1,6 +1,6 @@
 # Rust Project Example
 
-This example demonstrates how to use oss-ready with a Rust project.
+This example demonstrates how to use contributor-ready with a Rust project.
 
 ## Project Structure
 
@@ -37,7 +37,7 @@ my-rust-project/
 
 ## Detection
 
-When analyzing a Rust project, oss-ready detects:
+When analyzing a Rust project, contributor-ready detects:
 
 - **Language**: Rust (by `.rs` files and `Cargo.toml`)
 - **Build System**: Cargo (by `Cargo.toml`)
@@ -366,7 +366,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a Rust project:
+When using contributor-ready with a Rust project:
 
 - [ ] Detect Rust edition from Cargo.toml
 - [ ] Detect HTTP framework (actix-web, axum, rocket)

@@ -1,6 +1,6 @@
 # CLI Project Example
 
-This example demonstrates how to use oss-ready with a CLI tool project.
+This example demonstrates how to use contributor-ready with a CLI tool project.
 
 ## Project Structure
 
@@ -38,7 +38,7 @@ my-cli-project/
 
 ## Detection
 
-When analyzing a CLI project, oss-ready detects:
+When analyzing a CLI project, contributor-ready detects:
 
 - **Type**: CLI tool (by bin field in package.json)
 - **Language**: TypeScript or JavaScript (by file extensions)
@@ -419,7 +419,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a CLI project:
+When using contributor-ready with a CLI project:
 
 - [ ] Detect CLI framework
 - [ ] Detect bin entry point

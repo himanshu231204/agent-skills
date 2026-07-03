@@ -1,6 +1,6 @@
 # Next.js Project Example
 
-This example demonstrates how to use oss-ready with a Next.js project.
+This example demonstrates how to use contributor-ready with a Next.js project.
 
 ## Project Structure
 
@@ -48,7 +48,7 @@ my-nextjs-project/
 
 ## Detection
 
-When analyzing a Next.js project, oss-ready detects:
+When analyzing a Next.js project, contributor-ready detects:
 
 - **Framework**: Next.js (by `next` in package.json)
 - **Language**: TypeScript or JavaScript (by file extensions)
@@ -360,7 +360,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a Next.js project:
+When using contributor-ready with a Next.js project:
 
 - [ ] Detect Next.js framework
 - [ ] Detect App Router usage

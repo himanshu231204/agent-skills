@@ -1,6 +1,6 @@
 # Python Project Example
 
-This example demonstrates how to use oss-ready with a Python project.
+This example demonstrates how to use contributor-ready with a Python project.
 
 ## Project Structure
 
@@ -28,7 +28,7 @@ my-python-project/
 
 ## Detection
 
-When analyzing a Python project, oss-ready detects:
+When analyzing a Python project, contributor-ready detects:
 
 - **Language**: Python (by `.py` files)
 - **Package Manager**: pip, poetry, or conda (by lock files)
@@ -404,7 +404,7 @@ extend-ignore = ["E203", "W503"]
 
 ## Checklist
 
-When using oss-ready with a Python project:
+When using contributor-ready with a Python project:
 
 - [ ] Detect Python version and package manager
 - [ ] Check for pyproject.toml, setup.py, or setup.cfg

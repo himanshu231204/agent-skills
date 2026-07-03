@@ -1,6 +1,6 @@
 # FastAPI Project Example
 
-This example demonstrates how to use oss-ready with a FastAPI project.
+This example demonstrates how to use contributor-ready with a FastAPI project.
 
 ## Project Structure
 
@@ -51,7 +51,7 @@ my-fastapi-project/
 
 ## Detection
 
-When analyzing a FastAPI project, oss-ready detects:
+When analyzing a FastAPI project, contributor-ready detects:
 
 - **Framework**: FastAPI (by `fastapi` in requirements or pyproject.toml)
 - **Language**: Python (by `.py` files)
@@ -534,7 +534,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a FastAPI project:
+When using contributor-ready with a FastAPI project:
 
 - [ ] Detect FastAPI framework
 - [ ] Detect database (SQLAlchemy, Tortoise, etc.)

@@ -1,6 +1,6 @@
 # React Project Example
 
-This example demonstrates how to use oss-ready with a React project.
+This example demonstrates how to use contributor-ready with a React project.
 
 ## Project Structure
 
@@ -57,7 +57,7 @@ my-react-project/
 
 ## Detection
 
-When analyzing a React project, oss-ready detects:
+When analyzing a React project, contributor-ready detects:
 
 - **Framework**: React (by `react` in package.json)
 - **Language**: TypeScript or JavaScript (by file extensions)
@@ -536,7 +536,7 @@ jobs:
 
 ## Checklist
 
-When using oss-ready with a React project:
+When using contributor-ready with a React project:
 
 - [ ] Detect React framework
 - [ ] Detect TypeScript usage

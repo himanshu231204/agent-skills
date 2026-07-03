@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "contributor-ready": {
+      "source": "himanshu231204/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/contributor-ready/skill.md",
+      "computedHash": ""
+    }
+  }
+}

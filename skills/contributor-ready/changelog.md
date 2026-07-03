@@ -1,8 +1,31 @@
 # Changelog
 
-All notable changes to the oss-ready skill are documented here.
+All notable changes to the contributor-ready skill are documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
+
+## [3.0.0] - 2026-07-03
+
+### Changed
+
+- Renamed skill from `oss-ready` to `contributor-ready`
+- Restructured repository from single-skill to multi-skill collection (`agent-skills`)
+- Moved all skill files into `skills/contributor-ready/`
+- Updated all branding and references to use new naming
+- Repository now supports multiple skills under `skills/` directory
+
+### Added
+
+- `skills/contributor-ready/README.md` — Dedicated skill documentation
+- `skills/contributor-ready/assets/` — Static assets directory
+- `docs/` — Repository documentation directory
+- Repository README rewritten for multi-skill collection
+- Future skills roadmap in repository README
+
+### Removed
+
+- Root-level skill files (moved to `skills/contributor-ready/`)
+- Root-level `agents/`, `templates/`, `examples/` directories (moved to skill)
 
 ## [2.0.0] - 2026-07-03
 
@@ -57,7 +80,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Added
 
-- Initial release of oss-ready skill
+- Initial release of contributor-ready skill
 - Repository analysis and readiness scoring
 - Documentation generation (README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, CHANGELOG)
 - GitHub community files (issue templates, PR template, CODEOWNERS, labels)

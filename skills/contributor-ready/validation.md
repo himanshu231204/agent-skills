@@ -1,6 +1,6 @@
 # Validation Framework
 
-Use these checklists to verify the oss-ready skill itself is publication-quality.
+Use these checklists to verify the contributor-ready skill itself is publication-quality.
 
 ## Skill Quality Checklist
 
@@ -66,7 +66,7 @@ Use these checklists to verify the oss-ready skill itself is publication-quality
 
 ## Repository Compatibility Checklist
 
-Use this when running oss-ready on a target repository.
+Use this when running contributor-ready on a target repository.
 
 ### Detection Verification
 
@@ -98,7 +98,7 @@ Use this when running oss-ready on a target repository.
 
 ## Maintenance Checklist
 
-Use this when updating the oss-ready skill.
+Use this when updating the contributor-ready skill.
 
 ### After Adding a New Language
 

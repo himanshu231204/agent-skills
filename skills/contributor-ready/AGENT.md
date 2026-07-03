@@ -1,6 +1,6 @@
 # Agent Orchestration
 
-This file defines how AI agents execute the oss-ready skill. All agents follow the rules and formats defined in `reference.md`.
+This file defines how AI agents execute the contributor-ready skill. All agents follow the rules and formats defined in `reference.md`.
 
 ## Role
 
@@ -61,7 +61,7 @@ Load `agents/report.md` and produce the final readiness report using the output 
 
 ## Command Routing
 
-### `oss-ready audit`
+### `contributor-ready audit`
 
 ```
 1. Load agents/audit.md and reference.md
@@ -71,7 +71,7 @@ Load `agents/report.md` and produce the final readiness report using the output 
 5. Do NOT create any files
 ```
 
-### `oss-ready generate`
+### `contributor-ready generate`
 
 ```
 1. Load agents/audit.md and reference.md
@@ -85,7 +85,7 @@ Load `agents/report.md` and produce the final readiness report using the output 
 5. Generate updated readiness report
 ```
 
-### `oss-ready improve`
+### `contributor-ready improve`
 
 ```
 1. Load agents/audit.md and reference.md
@@ -99,7 +99,7 @@ Load `agents/report.md` and produce the final readiness report using the output 
 5. Generate updated readiness report
 ```
 
-### `oss-ready issues`
+### `contributor-ready issues`
 
 ```
 1. Load agents/issues.md and agents/audit.md
@@ -108,12 +108,12 @@ Load `agents/report.md` and produce the final readiness report using the output 
 4. Present issues to user
 ```
 
-### `oss-ready full`
+### `contributor-ready full`
 
 ```
-1. Execute oss-ready audit
-2. Execute oss-ready generate
-3. Execute oss-ready issues
+1. Execute contributor-ready audit
+2. Execute contributor-ready generate
+3. Execute contributor-ready issues
 4. Generate final report
 ```
 
@@ -123,9 +123,9 @@ When executing complex tasks, delegate to specialized agents:
 
 ```
 Agent(
-  description="Audit repository for oss-readiness",
+  description="Audit repository for contributor-readiness",
   subagent_type="CoderAgent",
-  prompt="Load and follow agents/audit.md from the oss-ready skill. Reference reference.md for detection and scoring. Analyze the repository at {path} and generate a readiness report."
+  prompt="Load and follow agents/audit.md from the contributor-ready skill. Reference reference.md for detection and scoring. Analyze the repository at {path} and generate a readiness report."
 )
 ```
 
