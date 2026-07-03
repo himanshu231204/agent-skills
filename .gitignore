@@ -1,6 +1,7 @@
 # Internal directories
 .tmp/
 .opencode/
+.agents/
 
 # OS files
 Thumbs.db
