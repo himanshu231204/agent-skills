@@ -4,348 +4,74 @@ Generate and improve CI/CD workflows.
 
 ## Purpose
 
-The CI/CD Agent inspects existing workflows and generates missing ones. It creates build, test, lint, and release pipelines that follow best practices for the detected technology stack.
+Inspect existing workflows and generate missing ones. Create build, test, lint, and release pipelines that follow best practices for the detected technology stack.
 
-## When to Use
+## Input
 
-- When CI/CD workflows are missing
-- When improving existing workflows
-- When adding new workflow steps
-- When setting up release automation
+- Repository analysis from `agents/audit.md`
+- Detected CI/CD platform (from `reference.md`)
+- Detected language, framework, package manager (from `reference.md`)
 
-## CI/CD Workflows
+## Output
+
+CI/CD workflow files written to the appropriate CI directory (e.g., `.github/workflows/`, `.gitlab-ci.yml`).
+
+## Platform Detection
+
+Use `reference.md` to detect the CI/CD platform. Default to GitHub Actions if no platform is detected and the user wants CI/CD.
+
+## Workflows to Generate
 
 ### Build Workflow
-
-```yaml
-# .github/workflows/build.yml
-name: Build
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]  # Adjust for technology
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-${{ matrix.node-version }}
-          path: dist/
-```
+- Triggered on push to main/develop and PRs
+- Installs dependencies using detected package manager
+- Builds the project using detected build system
+- Uploads build artifacts
 
 ### Test Workflow
-
-```yaml
-# .github/workflows/test.yml
-name: Tests
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run tests
-        run: npm test
-      
-      - name: Upload coverage
-        uses: actions/upload-artifact@v4
-        if: matrix.node-version == '20.x'
-        with:
-          name: coverage
-          path: coverage/
-```
+- Triggered on push to main/develop and PRs
+- Runs test suite using detected testing framework
+- Uploads coverage reports (if configured)
 
 ### Lint Workflow
-
-```yaml
-# .github/workflows/lint.yml
-name: Lint
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run linter
-        run: npm run lint
-      
-      - name: Check formatting
-        run: npm run format:check
-```
+- Triggered on push to main/develop and PRs
+- Runs linter using detected linting tool
+- Checks formatting using detected formatter
 
 ### Release Workflow
-
-```yaml
-# .github/workflows/release.yml
-name: Release
-
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Run tests
-        run: npm test
-      
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-          files: dist/*
-      
-      - name: Publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-```
+- Triggered on version tags (e.g., `v*`)
+- Builds, tests, creates GitHub release
+- Publishes to package manager (if applicable)
 
 ### Security Scanning Workflow
-
-```yaml
-# .github/workflows/security.yml
-name: Security
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  schedule:
-    - cron: '0 0 * * *'
-
-jobs:
-  security:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Run CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-        with:
-          languages: javascript  # Adjust for technology
-      
-      - name: Run dependency review
-        uses: actions/dependency-review-action@v3
-      
-      - name: Run security audit
-        run: npm audit --audit-level=high
-```
-
-### Dependency Updates Workflow
-
-```yaml
-# .github/workflows/dependencies.yml
-name: Dependencies
-
-on:
-  schedule:
-    - cron: '0 0 * * 1'  # Weekly on Monday
-  workflow_dispatch:
-
-jobs:
-  dependencies:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-      
-      - name: Update dependencies
-        run: npm update
-      
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          title: 'chore: update dependencies'
-          body: |
-            Automated dependency updates.
-            
-            - Updated all dependencies to latest versions
-            - Tests pass
-            - No breaking changes detected
-          branch: chore/update-dependencies
-          labels: dependencies, automated
-```
+- Scheduled and on PRs
+- Runs dependency vulnerability scanning
+- Runs static analysis (CodeQL or equivalent)
 
 ## Technology Adaptation
 
-### Python Projects
+Use the adaptation tables in `reference.md` to generate correct commands for the detected stack. Key variables:
+- Setup command (setup-node, setup-python, setup-go, etc.)
+- Install command (npm ci, pip install, go mod download, etc.)
+- Build command (npm run build, go build, cargo build, etc.)
+- Test command (npm test, pytest, go test, cargo test, etc.)
+- Lint command (npm run lint, ruff check, golangci-lint, etc.)
+- Format command (npm run format, ruff format, gofmt, etc.)
 
-```yaml
-# Build workflow for Python
-- name: Setup Python
-  uses: actions/setup-python@v4
-  with:
-    python-version: '3.11'
-    cache: 'pip'
-
-- name: Install dependencies
-  run: |
-    python -m pip install --upgrade pip
-    pip install -e ".[dev]"
-
-- name: Run tests
-  run: pytest
-
-- name: Run linter
-  run: flake8 .
-```
-
-### Go Projects
-
-```yaml
-# Build workflow for Go
-- name: Setup Go
-  uses: actions/setup-go@v4
-  with:
-    go-version: '1.21'
-
-- name: Build
-  run: go build -v ./...
-
-- name: Test
-  run: go test -v ./...
-
-- name: Vet
-  run: go vet ./...
-```
-
-### Rust Projects
-
-```yaml
-# Build workflow for Rust
-- name: Setup Rust
-  uses: dtolnay/rust-toolchain@stable
-
-- name: Build
-  run: cargo build --release
-
-- name: Test
-  run: cargo test
-
-- name: Lint
-  run: cargo clippy -- -D warnings
-```
-
-## Workflow Generation Rules
+## Generation Rules
 
 ### Always Do
-
 - Use the latest action versions
 - Cache dependencies
 - Run on multiple versions when applicable
 - Include proper error handling
 - Use secrets for sensitive data
+- Adapt to the detected technology stack
 
 ### Never Do
-
 - Hardcode secrets
 - Skip tests before release
 - Use outdated actions
 - Ignore security scanning
 - Skip the analysis phase
-
-## Instructions
-
-1. Check for existing workflows
-2. Analyze the technology stack
-3. Generate missing workflows
-4. Customize for this project
-5. Write files to `.github/workflows/`
+- Generate Node.js-only workflows for non-JS projects

@@ -1,28 +1,21 @@
-# Security Template
-
-Use this template as a starting point. Customize it for your specific project.
-
----
-
 # Security Policy
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+| Version | Supported |
+|---------|-----------|
+| {latest_version} | Yes |
+| < {latest_version} | No |
 
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability within {Project}, please send an email to {security_email}. All security vulnerabilities will be promptly addressed.
 
-**Please do NOT report security vulnerabilities through public GitHub issues.**
+**Do NOT report security vulnerabilities through public GitHub issues.**
 
 ### What to Include
 
 When reporting a vulnerability, please include:
-
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact
@@ -37,7 +30,7 @@ When reporting a vulnerability, please include:
 
 ### What to Expect
 
-1. We will acknowledge receipt of your vulnerability report
+1. We will acknowledge receipt of your report
 2. We will confirm the vulnerability and determine its impact
 3. We will develop a fix
 4. We will release the fix
@@ -48,7 +41,6 @@ When reporting a vulnerability, please include:
 ### For Users
 
 When a security update is released:
-
 1. Update to the latest version
 2. Review the changelog for security fixes
 3. Test your application
@@ -57,7 +49,6 @@ When a security update is released:
 ### For Maintainers
 
 When a security issue is reported:
-
 1. Acknowledge the report
 2. Assess the severity
 3. Develop a fix
@@ -84,49 +75,19 @@ When a security issue is reported:
 - Use parameterized queries
 - Sanitize output
 - Handle errors securely
-- Don't commit secrets
-
-## Dependency Security
-
-We use the following tools to monitor dependencies:
-
-- **Dependabot**: Automated dependency updates
-- **npm audit**: Dependency vulnerability scanning
-- **Snyk**: Security monitoring
-
-### Updating Dependencies
-
-```bash
-# Check for vulnerabilities
-npm audit
-
-# Fix vulnerabilities
-npm audit fix
-
-# Update dependencies
-npm update
-```
-
-## Security Resources
-
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [Node.js Security](https://nodejs.org/en/docs/guides/security/)
-- [npm Security](https://docs.npmjs.com/about-security)
+- Do not commit secrets
 
 ## Contact
 
 For security-related questions or concerns, please contact:
-
 - **Email**: {security_email}
-- **Discord**: {discord_link}
 
 ## Acknowledgments
 
 We would like to thank the following researchers for responsibly disclosing vulnerabilities:
-
 - {researcher_1}
 - {researcher_2}
 
 ---
 
-Thank you for helping keep {Project} and its users safe!
+Thank you for helping keep {Project} and its users safe.

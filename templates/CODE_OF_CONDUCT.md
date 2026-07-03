@@ -1,9 +1,3 @@
-# Code of Conduct Template
-
-Use this template as a starting point. Customize it for your specific project.
-
----
-
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
