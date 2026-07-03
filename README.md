@@ -1,5 +1,7 @@
 # oss-ready
 
+[![skills.sh](https://skills.sh/b/himanshu231204/oss-ready)](https://skills.sh/himanshu231204/oss-ready)
+
 An AI skill that transforms any repository into a professional, contributor-friendly open source project. It analyzes your actual codebase and produces repository-specific artifacts — not generic templates.
 
 ## What It Does
