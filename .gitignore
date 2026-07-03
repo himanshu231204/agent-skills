@@ -3,6 +3,9 @@
 .opencode/
 .agents/
 
+# Migration docs
+MIGRATION.md
+MIGRATION.MD
 # OS files
 Thumbs.db
 .DS_Store
