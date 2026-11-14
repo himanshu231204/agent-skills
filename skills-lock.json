@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": "skills/contributor-ready/SKILL.md",
       "computedHash": ""
+    },
+    "visual-concept-notes": {
+      "source": "himanshu231204/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/visual-concept-notes/SKILL.md",
+      "computedHash": ""
     }
   }
 }

@@ -39,6 +39,7 @@ agent-skills/
 | Skill | Description | Status |
 |-------|-------------|--------|
 | [contributor-ready](skills/contributor-ready/) | Transform any repository into a contributor-friendly, production-ready open source project | Available |
+| [visual-concept-notes](skills/visual-concept-notes/) | Turn any course, roadmap or topic into a 30–80 page handwritten-style study notes PDF, with a diagram on every page | Available |
 
 ## Installation
 
@@ -47,6 +48,9 @@ agent-skills/
 ```bash
 # Install contributor-ready
 npx skills add https://github.com/himanshu231204/agent-skills --skill contributor-ready
+
+# Install visual-concept-notes
+npx skills add https://github.com/himanshu231204/agent-skills --skill visual-concept-notes
 ```
 
 ### Browse and Install
